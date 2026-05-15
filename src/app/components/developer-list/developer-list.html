@@ -1,0 +1,30 @@
+<div class="developer-list">
+  <h3>Developer Directory</h3>
+
+  <!-- Loading state -->
+  @if (developerService.isLoading()) {
+    <div class="loading">⏳ Loading developers...</div>
+  }
+
+  <!-- Error state -->
+  @if (developerService.error()) {
+    <div class="error">❌ {{ developerService.error() }}</div>
+  }
+
+  <!-- Data state -->
+  @if (!developerService.isLoading() && !developerService.error()) {
+    <div class="cards">
+      @for (dev of developerService.developers(); track dev.id) {
+        <div class="dev-card">
+          <div class="dev-avatar">👨‍💻</div>
+          <div class="dev-info">
+            <h4>{{ dev.name }}</h4>
+            <p class="email">📧 {{ dev.email }}</p>
+            <p class="company">🏢 {{ dev.company.name }}</p>
+            <p class="phone">📱 {{ dev.phone }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

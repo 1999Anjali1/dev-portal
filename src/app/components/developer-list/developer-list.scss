@@ -1,0 +1,77 @@
+.developer-list {
+  text-align: center;
+
+  h3 {
+    color: #333;
+    margin: 0 0 16px 0;
+    font-size: 18px;
+  }
+
+  .loading {
+    color: #667eea;
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  .error {
+    color: #f5576c;
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 4px;
+
+    // custom scrollbar
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 4px;
+    }
+  }
+
+  .dev-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #f5f7ff, #f0f0ff);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e0e0ff;
+
+    .dev-avatar {
+      font-size: 32px;
+      min-width: 40px;
+    }
+
+    .dev-info {
+      h4 {
+        margin: 0 0 4px 0;
+        color: #333;
+        font-size: 14px;
+      }
+
+      p {
+        margin: 2px 0;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .email { color: #667eea; }
+      .company { color: #764ba2; }
+      .phone { color: #888; }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<div class="detail-container">
+
+  <a routerLink="/developers" class="back-btn">← Back to Developers</a>
+
+  @if (developerService.isLoading()) {
+    <div class="loading">⏳ Loading developer...</div>
+  }
+
+  @if (developerService.error()) {
+    <div class="error">❌ {{ developerService.error() }}</div>
+  }
+
+  @if (developerService.selectedDeveloper()) {
+    <div class="detail-card">
+      <div class="detail-header">
+        <div class="avatar">👨‍💻</div>
+        <div>
+          <h1>{{ developerService.selectedDeveloper()!.name }}</h1>
+          <p class="company">
+            🏢 {{ developerService.selectedDeveloper()!.company.name }}
+          </p>
+          <p class="catchphrase">
+            "{{ developerService.selectedDeveloper()!.company.catchPhrase }}"
+          </p>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-item">
+          <span class="label">📧 Email</span>
+          <span class="value">
+            {{ developerService.selectedDeveloper()!.email }}
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="label">📱 Phone</span>
+          <span class="value">
+            {{ developerService.selectedDeveloper()!.phone }}
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="label">🌐 Website</span>
+          <span class="value">
+            {{ developerService.selectedDeveloper()!.website }}
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="label">📍 Address</span>
+          <span class="value">
+            {{ developerService.selectedDeveloper()!.address.street }},
+            {{ developerService.selectedDeveloper()!.address.city }}
+          </span>
+        </div>
+      </div>
+
+      <div class="skills-section">
+        <h3>🛠️ Tech Stack</h3>
+        <div class="skills">
+          <span class="skill">Angular</span>
+          <span class="skill">TypeScript</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  }
+</div>

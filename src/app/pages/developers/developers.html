@@ -1,0 +1,31 @@
+<div class="developers-container">
+  <div class="page-header">
+    <div>
+      <h1>👨‍💻 Developer Directory</h1>
+      <p class="subtitle">Meet our talented developers</p>
+    </div>
+    <a routerLink="/add-developer" class="add-btn">➕ Add Developer</a>
+  </div>
+
+  @if (developerService.isLoading()) {
+    <div class="loading">⏳ Loading developers...</div>
+  }
+
+  @if (developerService.error()) {
+    <div class="error">❌ {{ developerService.error() }}</div>
+  }
+
+  <div class="developers-grid">
+    @for (dev of developerService.developers(); track dev.id) {
+      <a [routerLink]="['/developers', dev.id]" class="dev-card">
+        <div class="dev-avatar">👨‍💻</div>
+        <div class="dev-info">
+          <h3>{{ dev.name }}</h3>
+          <p class="email">📧 {{ dev.email }}</p>
+          <p class="company">🏢 {{ dev.company.name }}</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    }
+  </div>
+</div>

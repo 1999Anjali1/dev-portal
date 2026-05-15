@@ -1,0 +1,23 @@
+<div class="skills-manager">
+  <h3>Skills</h3>
+
+  <div class="skills-list">
+    @for (skill of skills; track skill) {
+      <span class="skill-badge">
+        {{ skill }}
+        <button class="remove-btn" (click)="removeSkill(skill)">✕</button>
+      </span>
+    }
+  </div>
+
+  <div class="add-skill">
+    <input
+      type="text"
+      placeholder="Add a skill..."
+      [value]="newSkill()"
+      (input)="updateNewSkill($event)"
+      (keyup.enter)="addSkill()"
+    />
+    <button class="add-btn" (click)="addSkill()">+ Add</button>
+  </div>
+</div>

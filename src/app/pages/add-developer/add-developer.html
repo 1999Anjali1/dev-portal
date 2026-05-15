@@ -1,0 +1,98 @@
+<div class="form-container">
+  <div class="form-card">
+    <h1>➕ Add Developer</h1>
+    <p class="subtitle">Fill in the details below</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <!-- Name Field -->
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Enter full name"
+          [class.error-input]="name?.invalid && name?.touched"
+        />
+        @if (name?.invalid && name?.touched) {
+          @if (name?.errors?.['required']) {
+            <span class="error-msg">⚠️ Name is required</span>
+          }
+          @if (name?.errors?.['minlength']) {
+            <span class="error-msg">⚠️ Name must be at least 3 characters</span>
+          }
+        }
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Enter email address"
+          [class.error-input]="email?.invalid && email?.touched"
+        />
+        @if (email?.invalid && email?.touched) {
+          @if (email?.errors?.['required']) {
+            <span class="error-msg">⚠️ Email is required</span>
+          }
+          @if (email?.errors?.['email']) {
+            <span class="error-msg">⚠️ Please enter a valid email</span>
+          }
+        }
+      </div>
+
+      <!-- Phone Field -->
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input
+          type="text"
+          formControlName="phone"
+          placeholder="Enter phone number"
+          [class.error-input]="phone?.invalid && phone?.touched"
+        />
+        @if (phone?.invalid && phone?.touched) {
+          @if (phone?.errors?.['required']) {
+            <span class="error-msg">⚠️ Phone is required</span>
+          }
+          @if (phone?.errors?.['minlength']) {
+            <span class="error-msg">⚠️ Phone must be at least 10 characters</span>
+          }
+        }
+      </div>
+
+      <!-- Company Field -->
+      <div class="form-group">
+        <label>Company Name *</label>
+        <input
+          type="text"
+          formControlName="companyName"
+          placeholder="Enter company name"
+          [class.error-input]="companyName?.invalid && companyName?.touched"
+        />
+        @if (companyName?.invalid && companyName?.touched) {
+          @if (companyName?.errors?.['required']) {
+            <span class="error-msg">⚠️ Company name is required</span>
+          }
+        }
+      </div>
+
+      <!-- Form Status -->
+      @if (form.valid) {
+        <div class="success-msg">✅ All fields are valid! Ready to submit.</div>
+      }
+
+      <!-- Buttons -->
+      <div class="btn-group">
+        <button type="button" class="btn-cancel" (click)="onCancel()">
+          Cancel
+        </button>
+        <button type="submit" class="btn-submit">
+          Add Developer
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

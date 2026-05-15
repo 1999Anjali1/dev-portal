@@ -1,0 +1,42 @@
+.header-card {
+  text-align: center;
+  margin-bottom: 24px;
+
+  .avatar {
+    font-size: 80px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+
+  .role {
+    color: #667eea;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+  }
+
+  .experience {
+    color: #888;
+    font-size: 14px;
+    margin: 0 0 8px 0;
+  }
+
+  .level {
+    color: #764ba2;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 4px 0;
+  }
+
+  .salary {
+    color: #27ae60;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+  }
+}
