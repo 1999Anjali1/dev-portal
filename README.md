@@ -2,6 +2,14 @@
 
 A modern developer directory portal built with Angular 21, showcasing modern Angular features and best practices.
 
+## 🔗 Related Repositories
+
+- **Backend API**: [devportal-api](https://github.com/1999Anjali1/devportal-api) — NestJS + PostgreSQL REST API
+
+## 🏗️ Full Stack Architecture
+Frontend (Angular 21) → Backend (NestJS) → Database (PostgreSQL)
+localhost:4200          localhost:3000        devportal
+
 ## ✨ Features
 
 - 🏠 **Home Page** — Beautiful landing page with feature highlights
@@ -37,18 +45,23 @@ A modern developer directory portal built with Angular 21, showcasing modern Ang
 
 ## 🚀 Getting Started
 
+### Frontend
 ```bash
-# Clone the repository
 git clone https://github.com/1999Anjali1/dev-portal.git
-
 cd dev-portal
-
 npm install
-
 ng serve
 ```
-
 Open browser at `http://localhost:4200`
+
+### Backend
+```bash
+git clone https://github.com/1999Anjali1/devportal-api.git
+cd devportal-api
+npm install
+npm run start:dev
+```
+API running at `http://localhost:3000`
 
 ## 📁 Project Structure
 src/app/
@@ -66,4 +79,4 @@ src/app/
 ## 👩‍💻 Developer
 
 **Anjali P** — Full Stack Developer
-Angular | Node.js | PostgreSQL | Strapi | TypeScript
+Angular | NestJS | Node.js | PostgreSQL | TypeScript
