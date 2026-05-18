@@ -53,8 +53,9 @@
 //   }
 // }
 
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from './services/auth-service';
 
 @Component({
   selector: 'app-root',
@@ -63,4 +64,6 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class App {}
+export class App {
+  authService = inject(AuthService);
+}

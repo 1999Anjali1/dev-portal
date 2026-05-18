@@ -1,0 +1,54 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="logo">💻</div>
+      <h1>Welcome Back!</h1>
+      <p>Login to DevPortal</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email Address</label>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          [class.error-input]="email?.invalid && email?.touched"
+        />
+        @if (email?.invalid && email?.touched) {
+          <span class="error-msg">⚠️ Valid email is required</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          [class.error-input]="password?.invalid && password?.touched"
+        />
+        @if (password?.invalid && password?.touched) {
+          <span class="error-msg">⚠️ Password must be at least 6 characters</span>
+        }
+      </div>
+
+      @if (authService.error()) {
+        <div class="error-banner">❌ {{ authService.error() }}</div>
+      }
+
+      <button type="submit" class="btn-submit">
+        @if (authService.isLoading()) {
+          ⏳ Logging in...
+        } @else {
+          Login →
+        }
+      </button>
+    </form>
+
+    <p class="auth-footer">
+      Don't have an account?
+      <a routerLink="/register">Register here</a>
+    </p>
+  </div>
+</div>
