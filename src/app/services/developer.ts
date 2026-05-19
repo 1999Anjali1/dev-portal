@@ -25,7 +25,7 @@ export interface Developer {
 export class DeveloperService {
   private http = inject(HttpClient);
   // private apiUrl = 'https://jsonplaceholder.typicode.com/users';
-  private apiUrl = 'http://localhost:3000/developers'; // real world API call
+  private apiUrl = 'https://dev-portal-backend.onrender.com/developers';
 
   developers = signal<Developer[]>([]);
   selectedDeveloper = signal<Developer | null>(null);

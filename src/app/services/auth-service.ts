@@ -19,7 +19,8 @@ export interface AuthResponse {
 export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private apiUrl = 'http://localhost:3000/auth';
+  // private apiUrl = 'http://localhost:3000/auth';
+  private apiUrl = 'https://dev-portal-backend.onrender.com/auth'; // real world API call
 
   // signals for auth state
   currentUser = signal<AuthResponse['user'] | null>(null);
