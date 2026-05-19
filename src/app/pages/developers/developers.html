@@ -7,6 +7,28 @@
     <a routerLink="/add-developer" class="add-btn">➕ Add Developer</a>
   </div>
 
+  <!-- 🆕 Search Box -->
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      placeholder="Search by name, company or email..."
+      [ngModel]="searchQuery()"
+      (ngModelChange)="searchQuery.set($event)"
+    />
+    @if (searchQuery()) {
+      <button class="clear-btn" (click)="searchQuery.set('')">✕</button>
+    }
+  </div>
+
+  <!-- 🆕 Results count -->
+  @if (searchQuery()) {
+    <p class="results-count">
+      Found {{ filteredDevelopers().length }} developer(s) 
+      for "{{ searchQuery() }}"
+    </p>
+  }
+
   @if (developerService.isLoading()) {
     <div class="loading">⏳ Loading developers...</div>
   }
@@ -16,7 +38,7 @@
   }
 
   <div class="developers-grid">
-    @for (dev of developerService.developers(); track dev.id) {
+    @for (dev of filteredDevelopers(); track dev.id) {
       <a [routerLink]="['/developers', dev.id]" class="dev-card">
         <div class="dev-avatar">👨‍💻</div>
         <div class="dev-info">
@@ -26,6 +48,14 @@
         </div>
         <span class="arrow">→</span>
       </a>
+    }
+
+    <!-- 🆕 No results message -->
+    @if (filteredDevelopers().length === 0 && !developerService.isLoading()) {
+      <div class="no-results">
+        😕 No developers found for "{{ searchQuery() }}"
+        <button (click)="searchQuery.set('')">Clear search</button>
+      </div>
     }
   </div>
 </div>
